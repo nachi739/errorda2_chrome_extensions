@@ -1,4 +1,11 @@
 import { Client } from "@notionhq/client";
+import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+import timezone from "dayjs/plugin/timezone";
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
+dayjs.tz.setDefault("Asia/Tokyo");
 
 const notion = new Client({
   auth: import.meta.env.VITE_NOTION_API_KEY,
@@ -9,6 +16,9 @@ export const createPost = async (title: string): Promise<any> => {
   if (!databaseId) {
     throw new Error("Database ID is not defined");
   }
+
+  // 現在の日時を取得
+  const timestamp = dayjs.tz().format("YYYY-MM-DD HH:mm:ssZ");
 
   const response = await notion.pages.create({
     parent: { database_id: databaseId },
@@ -22,8 +32,17 @@ export const createPost = async (title: string): Promise<any> => {
           },
         ],
       },
+      "Start time": {
+        date: {
+          start: timestamp,
+        },
+      },
     },
   });
 
-  return response;
+  // NotionページのURLを生成
+  const pageId = response.id.replace(/-/g, "");
+  const notionUrl = `https://www.notion.so/${pageId}`;
+
+  return notionUrl;
 };

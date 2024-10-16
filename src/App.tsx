@@ -9,10 +9,11 @@ const App: React.FC = () => {
   const handleSearch = async () => {
     setIsLoading(true);
     try {
-      const response = await createPost(inputText);
-      console.log("Post created:", response);
+      const notionUrl = await createPost(inputText);
+      console.log("Post created:", notionUrl);
       // Google検索の処理を追加
-      window.open(`https://www.google.com/search?q=${inputText}`);
+      // window.open(`https://www.google.com/search?q=${inputText}`);
+      window.open(notionUrl);
     } catch (error) {
       console.error("Error creating post:", error);
     } finally {
