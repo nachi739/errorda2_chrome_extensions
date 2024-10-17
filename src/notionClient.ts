@@ -17,7 +17,7 @@ export const createPost = async (title: string): Promise<any> => {
     throw new Error("Database ID is not defined");
   }
 
-  // 現在の日時を取得
+  // 現在の日時を取得（検索開始時の時刻）
   const timestamp = dayjs.tz().format("YYYY-MM-DD HH:mm:ssZ");
 
   const response = await notion.pages.create({
@@ -45,4 +45,20 @@ export const createPost = async (title: string): Promise<any> => {
   const notionUrl = `https://www.notion.so/${pageId}`;
 
   return notionUrl;
+};
+
+export const updatePost = async (pageId: string): Promise<void> => {
+  // 現在の日時を取得（検索終了時の時刻）
+  const timestamp = dayjs.tz().format("YYYY-MM-DD HH:mm:ssZ");
+
+  await notion.pages.update({
+    page_id: pageId,
+    properties: {
+      "End time": {
+        date: {
+          start: timestamp,
+        },
+      },
+    },
+  });
 };
