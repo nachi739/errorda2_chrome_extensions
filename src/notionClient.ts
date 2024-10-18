@@ -7,15 +7,12 @@ dayjs.extend(utc);
 dayjs.extend(timezone);
 dayjs.tz.setDefault("Asia/Tokyo");
 
-const notion = new Client({
-  auth: import.meta.env.VITE_NOTION_API_KEY,
-});
-
-export const createPost = async (title: string): Promise<any> => {
-  const databaseId = import.meta.env.VITE_NOTION_DATABASE_ID;
-  if (!databaseId) {
-    throw new Error("Database ID is not defined");
-  }
+export const createPost = async (
+  title: string,
+  apiKey: string,
+  databaseId: string
+): Promise<any> => {
+  const notion = new Client({ auth: apiKey });
 
   // 現在の日時を取得（検索開始時の時刻）
   const timestamp = dayjs.tz().format("YYYY-MM-DD HH:mm:ssZ");
@@ -47,7 +44,11 @@ export const createPost = async (title: string): Promise<any> => {
   return notionUrl;
 };
 
-export const updatePost = async (pageId: string): Promise<void> => {
+export const updatePost = async (
+  pageId: string,
+  apiKey: string
+): Promise<void> => {
+  const notion = new Client({ auth: apiKey });
   // 現在の日時を取得（検索終了時の時刻）
   const timestamp = dayjs.tz().format("YYYY-MM-DD HH:mm:ssZ");
 
