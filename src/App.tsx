@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { createPost, updatePost } from "./notionClient";
-import "./App.css";
+import {
+  Container,
+  TextInput,
+  Button,
+  Title,
+  LoadingOverlay,
+  Textarea,
+} from "@mantine/core";
 
 const App: React.FC = () => {
   const [inputText, setInputText] = useState("");
@@ -74,56 +81,72 @@ const App: React.FC = () => {
     }
   };
 
+  const containerStyles = {
+    width: 120,
+  };
+
   if (step === "setup") {
     return (
-      <div className="setup-container">
-        <h1>Notion設定</h1>
-        <input
-          type="text"
-          value={apiKey || ""}
-          onChange={(e) => setApiKey(e.target.value)}
-          placeholder="Notion API Key"
-        />
-        <input
-          type="text"
-          value={databaseId || ""}
-          onChange={(e) => setDatabaseId(e.target.value)}
-          placeholder="Notion Database ID"
-        />
-        <button onClick={handleSaveConfig}>保存</button>
-      </div>
+      <>
+        <Container>
+          <Title order={2}>Notion設定</Title>
+
+          <TextInput
+            style={{}}
+            variant="filled"
+            label="NOTION_TOKEN"
+            value={apiKey || ""}
+            onChange={(e) => setApiKey(e.currentTarget.value)}
+            placeholder="NOTION_TOKEN"
+          />
+          <TextInput
+            style={{ flex: 1 }}
+            label="NOTION_DATABASE_ID"
+            value={databaseId || ""}
+            onChange={(e) => setDatabaseId(e.currentTarget.value)}
+            placeholder="NOTION_DATABASE_ID"
+          />
+          <Button onClick={handleSaveConfig}>保存</Button>
+        </Container>
+      </>
     );
   }
 
   if (step === "search") {
     return (
-      <div className="search-container">
-        <h1>Error検索</h1>
-        <input
-          type="text"
+      <Container>
+        <Title order={2}>Error検索</Title>
+        <Textarea
           value={inputText}
-          onChange={(e) => setInputText(e.target.value)}
+          onChange={(e) => setInputText(e.currentTarget.value)}
           placeholder="検索キーワードを入力"
           disabled={isLoading || notionUrl !== null}
+          mt="lg"
         />
         {!notionUrl && (
-          <button
+          <Button
             onClick={handleSearch}
             disabled={isLoading || notionUrl !== null}
+            className="button"
           >
             {isLoading ? "検索中..." : "検索"}
-          </button>
+          </Button>
         )}
-      </div>
+        <LoadingOverlay visible={isLoading} />
+      </Container>
     );
   }
 
   if (step === "resolve") {
     return (
-      <div className="resolve-container">
-        <h1>Error検索中</h1>
-        {notionUrl && <button onClick={handleResolve}>解決</button>}
-      </div>
+      <Container style={containerStyles}>
+        <Title order={2}>Error 検索中</Title>
+        {notionUrl && (
+          <Button onClick={handleResolve} className="button">
+            解決
+          </Button>
+        )}
+      </Container>
     );
   }
 
