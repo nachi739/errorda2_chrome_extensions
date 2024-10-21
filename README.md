@@ -1,50 +1,75 @@
-# React + TypeScript + Vite
+# Chrome 拡張機能プロジェクト
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+このプロジェクトは、React と Vite を使用して構築された Chrome 拡張機能です。ホットモジュールリプレースメント（HMR）と ESLint の設定が含まれています。
 
-Currently, two official plugins are available:
+## はじめに
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+このプロジェクトを始めるには、以下の手順に従ってください：
 
-## Expanding the ESLint configuration
+1. **リポジトリをクローンする:**
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```sh
+git clone https://github.com/yourusername/errorda2_chrome_extensions.git
+cd errorda2_chrome_extensions.git
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+2. **依存関係をインストールする:**
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```sh
+yarn install
 ```
+
+3. **開発サーバーを起動する:**
+
+```sh
+yarn dev
+```
+
+4. **プロジェクトをビルドする:**
+
+```sh
+yarn build
+```
+
+5. **Chrome に拡張機能を読み込む:**
+
+- Chrome を開き、`chrome://extensions/` にアクセス
+- 「デベロッパーモード」を有効にする
+- 「パッケージ化されていない拡張機能を読み込む」をクリックし、`dist` フォルダを選択
+
+## プロジェクト構成
+
+- `src/`: 拡張機能のソースコードが含まれています
+- `public/`: 静的アセットが含まれています
+- `dist/`: ビルド出力ディレクトリ
+
+## 機能
+
+- **React**: ユーザーインターフェースを構築するための JavaScript ライブラリ
+- **Vite**: 高速なビルドツールおよび開発サーバー
+- **ESLint**: JavaScript コードの問題を特定し修正するためのツール
+
+## ライセンス
+
+このプロジェクトは [MIT ライセンス](./LICENSE) の下でライセンスされています。
+
+### 使用しているライブラリのライセンス
+
+- **React**: [MIT License](https://github.com/facebook/react/blob/main/LICENSE)
+- **Vite**: [MIT License](https://github.com/vitejs/vite/blob/main/LICENSE)
+- **ESLint**: [MIT License](https://github.com/eslint/eslint/blob/main/LICENSE)
+- **@notionhq/client**: [MIT License](https://github.com/makenotion/notion-sdk-js/blob/main/LICENSE)
+- **@crxjs/vite-plugin**: [MIT License](https://github.com/crxjs/chrome-extension-tools/blob/main/LICENSE)
+- **@mantine/core**: [MIT License](https://github.com/mantinedev/mantine/blob/master/LICENSE)
+- **@mantine/form**: [MIT License](https://github.com/mantinedev/mantine/blob/master/LICENSE)
+- **@mantine/hooks**: [MIT License](https://github.com/mantinedev/mantine/blob/master/LICENSE)
+- **@types/chrome**: [MIT License](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/LICENSE)
+- **dayjs**: [MIT License](https://github.com/iamkun/dayjs/blob/dev/LICENSE)
+- **typescript**: [Apache License 2.0](https://github.com/microsoft/TypeScript/blob/main/LICENSE.txt)
+
+このテンプレートは、HMR といくつかの ESLint ルールを使用して、Vite で React を動作させるための最小限のセットアップを提供します。
+
+現在、2 つの公式プラグインが利用可能です：
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) は、[Babel](https://babeljs.io/) を使用して Fast Refresh を実現します
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) は、[SWC](https://swc.rs/) を使用して Fast Refresh を実現します
