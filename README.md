@@ -49,9 +49,9 @@ yarn build
 
 ## 機能
 
-- **React**: ユーザーインターフェースを構築するための JavaScript ライブラリ
-- **Vite**: 高速なビルドツールおよび開発サーバー
-- **ESLint**: JavaScript コードの問題を特定し修正するためのツール
+- テンプレートの NotionDB との連携
+- 検索時に Google 検索を行い・NotionDB の Title に検索内容保存・検索開始時刻を保存
+- 解決時に NotionDB の詳細ページへ画面遷移・検索終了時刻を保存
 
 ## ライセンス
 
