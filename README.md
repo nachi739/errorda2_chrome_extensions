@@ -1,6 +1,10 @@
 # Chrome 拡張機能プロジェクト
 
-このプロジェクトは、React と Vite を使用して構築された Chrome 拡張機能です。ホットモジュールリプレースメント（HMR）と ESLint の設定が含まれています。
+このプロジェクトは、React と Vite を使用して構築された Chrome 拡張機能です。
+
+下記の NotionDB テンプレートの利用を前提としています。
+
+[テンプレート](https://honored-motion-55e.notion.site/129eaa80727680f19b06d02621f24066?v=129eaa807276819899ee000c30bb0f5b&pvs=4)
 
 ## はじめに
 
