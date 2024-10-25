@@ -92,7 +92,6 @@ const App: React.FC = () => {
           <Title order={2}>Notion設定</Title>
 
           <TextInput
-            style={{}}
             variant="filled"
             label="NOTION_TOKEN"
             value={apiKey || ""}
@@ -100,7 +99,7 @@ const App: React.FC = () => {
             placeholder="NOTION_TOKEN"
           />
           <TextInput
-            style={{ flex: 1 }}
+            variant="filled"
             label="NOTION_DATABASE_ID"
             value={databaseId || ""}
             onChange={(e) => setDatabaseId(e.currentTarget.value)}
