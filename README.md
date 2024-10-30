@@ -6,6 +6,10 @@
 
 [テンプレート](https://honored-motion-55e.notion.site/129eaa80727680f19b06d02621f24066?v=129eaa807276819899ee000c30bb0f5b&pvs=4)
 
+## 利用方法（開発環境を構築せずに利用する場合）
+
+[導入手順リンク先](https://github.com/nachi739/Errorda2?tab=readme-ov-file#%E5%88%A9%E7%94%A8%E6%96%B9%E6%B3%95)
+
 ## はじめに
 
 このプロジェクトを始めるには、以下の手順に従ってください：
