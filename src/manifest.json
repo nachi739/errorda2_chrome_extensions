@@ -6,5 +6,10 @@
   "host_permissions": ["https://api.notion.com/*"],
   "action": {
     "default_popup": "index.html"
+  },
+  "icons": {
+    "16": "public/16.png",
+    "48": "public/48.png",
+    "128": "public/128.png"
   }
 }
