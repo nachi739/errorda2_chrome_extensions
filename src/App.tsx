@@ -7,6 +7,7 @@ import {
   Title,
   LoadingOverlay,
   Textarea,
+  Center,
 } from "@mantine/core";
 
 const App: React.FC = () => {
@@ -81,40 +82,46 @@ const App: React.FC = () => {
     }
   };
 
-  const containerStyles = {
-    width: 120,
+  const handleResetKeys = () => {
+    setApiKey("");
+    setDatabaseId("");
+    setStep("setup");
   };
 
   if (step === "setup") {
     return (
-      <>
-        <Container>
-          <Title order={2}>Notion設定</Title>
+      <Container style={{ width: "250px" }}>
+        <Title order={2}>Notion設定</Title>
 
-          <TextInput
-            variant="filled"
-            label="NOTION_TOKEN"
-            value={apiKey || ""}
-            onChange={(e) => setApiKey(e.currentTarget.value)}
-            placeholder="NOTION_TOKEN"
-          />
-          <TextInput
-            variant="filled"
-            label="NOTION_DATABASE_ID"
-            value={databaseId || ""}
-            onChange={(e) => setDatabaseId(e.currentTarget.value)}
-            placeholder="NOTION_DATABASE_ID"
-          />
+        <TextInput
+          variant="filled"
+          label="NOTION_TOKEN"
+          value={apiKey || ""}
+          onChange={(e) => setApiKey(e.currentTarget.value)}
+          placeholder="NOTION_TOKEN"
+          mb={20}
+        />
+        <TextInput
+          variant="filled"
+          label="NOTION_DATABASE_ID"
+          value={databaseId || ""}
+          onChange={(e) => setDatabaseId(e.currentTarget.value)}
+          placeholder="NOTION_DATABASE_ID"
+          mb={20}
+        />
+        <Center>
           <Button onClick={handleSaveConfig}>保存</Button>
-        </Container>
-      </>
+        </Center>
+      </Container>
     );
   }
 
   if (step === "search") {
     return (
-      <Container>
+      <Container style={{ width: "250px" }}>
         <Title order={2}>Error検索</Title>
+        <Button onClick={handleResetKeys}>Key-reset</Button>
+
         <Textarea
           value={inputText}
           onChange={(e) => setInputText(e.currentTarget.value)}
@@ -138,7 +145,7 @@ const App: React.FC = () => {
 
   if (step === "resolve") {
     return (
-      <Container style={containerStyles}>
+      <Container style={{ width: "250px" }}>
         <Title order={2}>Error 検索中</Title>
         {notionUrl && (
           <Button onClick={handleResolve} className="button">
