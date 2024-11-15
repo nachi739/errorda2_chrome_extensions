@@ -3,7 +3,7 @@ services:
     container_name: chrome_app
     build:
       context: ..
-      dockerfile: docker/Dockerfile
+      dockerfile: docker-chrome/Dockerfile
     ports:
       - "3030:3030"
     volumes:
