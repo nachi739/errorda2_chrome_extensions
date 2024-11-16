@@ -21,22 +21,37 @@ git clone https://github.com/yourusername/errorda2_chrome_extensions.git
 cd errorda2_chrome_extensions.git
 ```
 
+2. **Dockerで環境構築:**
+
+```sh
+cd docker-chrome
+docker-compose build
+```
+
 2. **依存関係をインストールする:**
 
 ```sh
-yarn install
+cd docker-chrome
+docker-compose run app yarn install
 ```
 
 3. **開発サーバーを起動する:**
 
 ```sh
-yarn dev
+cd docker-chrome
+docker-compose run app yarn dev
+
+or
+
+cd docker-chrome
+docker-compose up -d
 ```
 
 4. **プロジェクトをビルドする:**
 
 ```sh
-yarn build
+cd docker-chrome
+docker-compose run app yarn build
 ```
 
 5. **Chrome に拡張機能を読み込む:**
