@@ -1,0 +1,59 @@
+name: "🐛 Bug Report"
+description: バグ報告
+title: "🐛 [BUG] - <title>"
+labels: ["bug"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: "説明"
+      description: 問題の明確な説明を入力してください。
+      placeholder: 問題の簡潔で明確な説明...
+    validations:
+      required: true
+  - type: textarea
+    id: reprod
+    attributes:
+      label: "再現手順"
+      description: 問題発生に至る操作手順を入力してください。
+      value: |
+        1. Go to '...'
+        2. Click on '...'
+        3. Scroll down to '...'
+        4. See error
+    validations:
+      required: true
+  - type: dropdown
+    id: browsers
+    attributes:
+      label: "ブラウザ"
+      description: どのブラウザで問題の発生を確認しましたか?
+      multiple: true
+      options:
+        - Chrome
+        - Firefox
+        - Microsoft Edge
+        - Opera
+        - Safari
+    validations:
+      required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: "OS"
+      description: 影響を受ける環境は何ですか?
+      multiple: true
+      options:
+        - Windows
+        - Linux
+        - Mac
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: "解決方法"
+      description: 解決方法が明確な場合は入力してください。
+      placeholder: 解決方法を説明...
+    validations:
+      required: false
