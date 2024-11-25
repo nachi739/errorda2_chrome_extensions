@@ -1,10 +1,15 @@
-# Chrome 拡張機能プロジェクト
+# Errorda2 Extension
 
 このプロジェクトは、React と Vite を使用して構築された Chrome 拡張機能です。
 
-下記の NotionDB テンプレートの利用を前提としています。
+Errorda2 Extension は Error 解決のプロセスと成長過程を可視化するためのものです。 エラー文を検索する際にエラー文の保存とクローム検索を一度に行います。
 
-[テンプレート](https://honored-motion-55e.notion.site/129eaa80727680f19b06d02621f24066?v=129eaa807276819899ee000c30bb0f5b&pvs=4)
+- Error 解決に掛かった時間を記録します。
+- Error 解決直後に解決に至るまでに閲覧した URL や解決のヒントなどをメモに残すことができます。
+
+前提準備:
+- 下記のNotionTemplateの使用を前提としています。
+- [テンプレート](https://honored-motion-55e.notion.site/129eaa80727680f19b06d02621f24066?v=129eaa807276819899ee000c30bb0f5b&pvs=4)
 
 ## 利用方法（開発環境を構築せずに利用する場合）
 
