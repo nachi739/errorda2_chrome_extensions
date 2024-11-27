@@ -1,7 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Errorda2 Extension",
-  "version": "1.0.0",
+  "name": "Errorda2",
+  "version": "1.0.1",
+  "description": "This extension integrates with Notion to create a new page in the Notion database using the Google search keywords. It tracks the time from search initiation to resolution and records the process by navigating to the created page upon completion.",
   "permissions": ["storage"],
   "host_permissions": ["https://api.notion.com/*"],
   "action": {
