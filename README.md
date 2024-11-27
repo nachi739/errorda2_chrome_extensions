@@ -1,17 +1,18 @@
-# Errorda2 Extension
+# errorda2_chrome_extensions
 
 このプロジェクトは、React と Vite を使用して構築された Chrome 拡張機能です。
 
-Errorda2 Extension は Error 解決のプロセスと成長過程を可視化するためのものです。 エラー文を検索する際にエラー文の保存とクローム検索を一度に行います。
+errorda2_chrome_extensions は Error 解決のプロセスと成長過程を可視化するためのものです。 エラー文を検索する際にエラー文の保存とクローム検索を一度に行います。
 
 - Error 解決に掛かった時間を記録します。
 - Error 解決直後に解決に至るまでに閲覧した URL や解決のヒントなどをメモに残すことができます。
 
 前提準備:
-- 下記のNotionTemplateの使用を前提としています。
+
+- 下記の NotionTemplate の使用を前提としています。
 - [テンプレート](https://honored-motion-55e.notion.site/129eaa80727680f19b06d02621f24066?v=129eaa807276819899ee000c30bb0f5b&pvs=4)
 
-## Chromeウェブストアでの利用
+## Chrome ウェブストアでの利用
 
 [ダウンロードリンク先](https://chromewebstore.google.com/detail/errorda2-extension/kiokhdhbecikhmpdancgmchlpjjbbkjg)
 
@@ -26,7 +27,7 @@ git clone https://github.com/yourusername/errorda2_chrome_extensions.git
 cd errorda2_chrome_extensions.git
 ```
 
-2. **Dockerで環境構築:**
+2. **Docker で環境構築:**
 
 ```sh
 cd docker-chrome
