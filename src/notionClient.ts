@@ -16,6 +16,7 @@ export const createPost = async (
 
   // 現在の日時を取得（検索開始時の時刻）
   const timestamp = dayjs.tz().format("YYYY-MM-DD HH:mm:ssZ");
+  const date = dayjs.tz().format("YYYY-MM-DD");
 
   const response = await notion.pages.create({
     parent: { database_id: databaseId },
@@ -32,6 +33,11 @@ export const createPost = async (
       "Start time": {
         date: {
           start: timestamp,
+        },
+      },
+      Date: {
+        date: {
+          start: date,
         },
       },
     },
